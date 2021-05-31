@@ -1,0 +1,42 @@
+
+img {
+  height: 250px;
+
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-films {
+  padding: 5px;
+  width: 400px;
+
+}
+
+.card-body .card-btns{
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+}
+
+.all-films {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-film-info {
+    height: 200px;
+}
+
+.card-body.card-buttos {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-card {
+margin: 30px;
+}
