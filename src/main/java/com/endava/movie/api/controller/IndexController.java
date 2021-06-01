@@ -20,4 +20,15 @@ public class IndexController {
     public ModelAndView updateUser() {
         return new ModelAndView("updateMovie.html");
     }
+
+
+    @GetMapping("/login")
+    public ModelAndView login() {
+        return new ModelAndView("login.html");
+    }
+
+    @GetMapping("/registration")
+    public ModelAndView registration() {
+        return new ModelAndView("registration.html");
+    }
 }
