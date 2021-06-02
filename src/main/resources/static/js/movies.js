@@ -62,7 +62,7 @@ function displayMovies(movies) {
                             <form th:action="@{/update}" method="get">
                                 <button class="edit-film btn btn-primary">Edit</button>
                             </form>
-                            <form th:action="@{/api/movies/{id}}" method="post">
+                            <form th:action="@{/api/movies/} + ${movie.id}" method="post">
                                 <button class="info-film btn btn-danger">Delete</button>
                             </form>
                         </div>
