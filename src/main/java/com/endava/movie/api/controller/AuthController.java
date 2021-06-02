@@ -27,12 +27,15 @@ public class AuthController {
 
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("user") User user, Model model) {
-        user.setEnabled(true);
-        user.setRoles(Collections.singleton(Role.USER));
-        userRepository.save(user);
-        return "redirect:/login";
+        if(!user.getUsername().isEmpty() && !user.getEmail().isEmpty() && !user.getPassword().isEmpty()){
+            user.setEnabled(true);
+            user.setRoles(Collections.singleton(Role.USER));
+            userRepository.save(user);
+            return "redirect:/login";
+        } else {
+            return "redirect:/registration";
+        }
+
+
     }
-
-
-
 }
