@@ -23,7 +23,6 @@ public class IndexController {
         return new ModelAndView("updateMovie.html");
     }
 
-
     @GetMapping("/login")
     public ModelAndView login() {
         return new ModelAndView("login.html");

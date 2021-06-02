@@ -38,13 +38,8 @@ function displayMovies(movies) {
                             <span>$</span>
                         </p>
                         <div class="card-body card-buttos">
-                            <form th:action="@{/update}" method="get">
-                                <button class="update-movie edit-film btn btn-primary">Edit</button>
-                            </form>
-                            <form th:action="@{/api/movies/} + ${movie.id}" th:method="post">
-                                <button class="delete-movie info-film btn btn-danger">Delete</button>
-                                
-                            </form>
+                               <button class="update-movie edit-film btn btn-primary">Edit</button>
+                               <button class="delete-movie info-film btn btn-danger">Delete</button>
                         </div>
                 </div>
         </div>
@@ -60,7 +55,7 @@ $("#add").on("click", () => {
     window.location.href = "/add";
 });
 
-$("#movies-placeholder").on("click", ".delete-movie", function () {
+$("#movies-placeholder").on("click", ".update-movie", function () {
     let id = this.parentNode.parentElement.querySelector(".movie-id").value;
     window.location.href = `/update?uid=${id}`;
 });
@@ -84,10 +79,4 @@ $("#movies-placeholder").on("click", ".delete-movie", function () {
     }
 });
 
-
-
-// $("#movies-placeholder").on("click", ".update-movie", () => {
-//     let id = this.parentNode.parentElement.querySelector(".movie-id").value;
-//     window.location.href = "/update?uid=${id}";
-// });
 

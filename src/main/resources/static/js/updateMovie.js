@@ -15,7 +15,7 @@ $(document).ready(() => {
 
 function fillInputs(data) {
     $("#name-update").val(data.name);
-    $("#genre-update").val(data.genre);
+    $("#genre-update").val(data.description);
     $("#budget-update").val(data.budget);
 }
 
@@ -40,7 +40,7 @@ $("#update-movie-submit").on("click", () => {
 const newUserObj = () => {
     return {
         name: $("#name-update").val(),
-        genre: $("#genre-update").val(),
+        description: $("#genre-update").val(),
         budget: parseInt($("#budget-update").val())
     };
 };

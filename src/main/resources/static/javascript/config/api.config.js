@@ -1,5 +1,5 @@
 const API_ENV = {
-  apiUrl: 'https://mlp-demo.herokuapp.com/api/public',
+  apiUrl: 'http://localhost:8082/',
 };
 
 export default API_ENV;

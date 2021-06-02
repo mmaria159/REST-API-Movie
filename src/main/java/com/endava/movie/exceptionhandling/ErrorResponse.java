@@ -1,7 +1,5 @@
 package com.endava.movie.exceptionhandling;
 
-import lombok.*;
-
 import java.util.Date;
 
 
