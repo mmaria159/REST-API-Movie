@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NetFilms</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <div class="container mt-2">
+      <div class="header-inner">
+        <div class="header-logo">
+          <h1>Netfilms</h1>
+        </div>
+        <div class="header-search">
+          <input type="text" class="search-films" placeholder="Search">
+        </div>
+        <div class="header-add-button">
+          <form action="/add" method="GET">
+            <button class="btn btn-success add-film" type="submit">ADD MOVIE</button>
+          </form>
+        </div>
+          <div class="header-singOut-button">
+              <form th:action="@{/logout}" method="post">
+                  <input class="btn btn-danger" type="submit" value="Sign Out"/>
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+
+      <!--Card
+==================================================--->
+      <div class="container">
+          <div class="all-films example">
+              <div class="card my-5 w-25 card-card" >
+                  <img src="/img/spider-man.png" alt="IMG" class="card-img-top">
+                  <div class="card-body">
+                      <h5 class="card-title">Spiderman</h5>
+                      <p class="card-text card-film-info">
+                          Spider-Man is a superhero created by writer-editor Stan Lee and writer-artist Steve Ditko. He first appeared in the anthology comic book Amazing Fantasy #15 (Aug. 1962) in the Silver Age of Comic Books.
+                      </p>
+                  </div>
+
+                  <div class="card-body card-buttos">
+
+                      <button class="edit-film btn btn-primary">Edit</button>
+                      <button class="info-film btn btn-info">Info</button>
+                      <button class="info-film btn btn-danger">Delete</button>
+
+                  </div>
+              </div>
+
+              <div class="card my-5 w-25 card-card">
+                  <img src="/img/batman.jpeg" alt="IMG" class="card-img-top">
+                  <div class="card-body">
+                      <h5 class="card-title">Batman</h5>
+                      <p class="card-text card-film-info">
+                          Batman[a] is a superhero who appears in American comic books published by DC Comics. Batman was created by artist Bob Kane and writer Bill Finger, and debuted in the 27th issue of the comic book Detective Comics on March 30, 1939.
+                      </p>
+                  </div>
+
+                  <div class="card-body card-buttos">
+
+                      <button class="edit-film btn btn-primary">Edit</button>
+                      <button class="info-film btn btn-info">Info</button>
+                      <button class="info-film btn btn-danger">Delete</button>
+
+                  </div>
+              </div>
+
+              <div class="card my-5 w-25 card-card">
+                  <img src="/img/iron-man.jpeg" alt="IMG" class="card-img-top">
+                  <div class="card-body">
+                      <h5 class="card-title">Iron Man</h5>
+                      <p class="card-text card-film-info">
+                          Iron Man is a superhero appearing in American comic books published by Marvel Comics. The character was co-created by writer and editor Stan Lee, developed by scripter Larry Lieber, and designed by artists Don Heck and Jack Kirby.
+                      </p>
+                  </div>
+
+                  <div class="card-body card-buttos">
+
+                      <button class="edit-film btn btn-primary">Edit</button>
+                      <button class="info-film btn btn-info">Info</button>
+                      <button class="info-film btn btn-danger">Delete</button>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="container" id="movies-div">
+         <div class="all-films" id="movies-placeholder">
+
+
+         </div> <!--all films  -->
+      </div>
+    </div>
+</div>
+
+<script src="/js/movies.js"></script>
+
+
+
+</body>
+</html>

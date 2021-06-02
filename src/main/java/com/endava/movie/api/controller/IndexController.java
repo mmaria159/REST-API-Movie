@@ -1,6 +1,8 @@
 package com.endava.movie.api.controller;
 
+import com.endava.movie.model.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -28,7 +30,8 @@ public class IndexController {
     }
 
     @GetMapping("/registration")
-    public ModelAndView registration() {
+    public ModelAndView registration(Model model) {
+        model.addAttribute("user", new User());
         return new ModelAndView("registration.html");
     }
 }

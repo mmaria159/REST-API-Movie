@@ -41,7 +41,7 @@ public class MovieRestController {
         return new ResponseEntity<>("Movie with id \"" + id + "\" has been updated successfully!", HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/{id}")
     public ResponseEntity<Object> deleteMovie(@PathVariable Long id) throws DataBaseException, MovieNotFoundException {
         movieService.deleteMovie(id);
         return new ResponseEntity<>("Movie with id \"" + id + "\" has been deleted successfully!", HttpStatus.OK);

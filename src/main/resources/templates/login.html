@@ -1,44 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="/css/login.css">
     <link rel="stylesheet" href="/css/bootstrap.css">
-    <title>Registration</title>
+    <title>Login</title>
   </head>
   <body>
     <div class="login-page-wrapp d-flex">
       <div class="login-form-wrap d-flex align-items-center">
         <div class="form-card card ml-auto">
           <div class="card-body">
-            <h4 class="card-title">Please Register</h4>
-            <form name="registrationForm">
+            <h4 class="card-title">Please Login</h4>
+            <form th:action="@{/login}" method="post">
               <div class="form-group">
-                <label for="username">Username</label>
-                <input
-                        type="text"
-                        class="form-control mb-1"
-                        id="username"
-                        placeholder="Enter username"
-                />
-                <label for="email">Email address</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  id="email"
-                  placeholder="Enter email"
-                />
+                <label for="username">Email address</label>
+                <input type="text" class="form-control" id="username" name="username"
+                       placeholder="Enter username"/>
               </div>
               <div class="form-group">
                 <label for="password">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  placeholder="Password"
-                />
+                <input type="password" class="form-control" id="password" name="password"
+                  placeholder="Password"/>
               </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

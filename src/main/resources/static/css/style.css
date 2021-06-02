@@ -1,7 +1,6 @@
 
 img {
   height: 250px;
-
 }
 
 .header-inner {
@@ -29,7 +28,8 @@ align-items: flex-end;
 }
 
 .card-film-info {
-    height: 200px;
+  height: 200px;
+  color: red;
 }
 
 .card-body.card-buttos {

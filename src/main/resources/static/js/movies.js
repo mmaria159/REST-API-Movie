@@ -16,44 +16,65 @@ function getAllMovies() {
     })
 }
 
-function displayMovies(movies) {
-    if (movies.length>0) {
-        let placeholder = "";
-        $.each(movies, (index, movie) => {
-            placeholder +=
-                `<tr>
-                <input class="movie-id" type='hidden' value='${movie.id}'>
-                <td>${(index + 1)}</td>;
-                <td>${movie.name}</td>
-                <td>${movie.description}</td>
-                <td>${movie.budget}</td>
-                <td><button class="update-movie">Update</button></td>
-                <td><button class="delete-movie">Delete</button></td>
-            </tr>`;
-        });
-        $("#movies-placeholder tbody").html(placeholder);
-    } else {
-        $("#movies-div").html("<p>No movies in the system.</p>");
-    }
-}
-
 // function displayMovies(movies) {
-//     if (movies.length > 0) {
+//     if (movies.length>0) {
 //         let placeholder = "";
 //         $.each(movies, (index, movie) => {
 //             placeholder +=
-//                 `
-//          <input class="movie-id" type='hidden' value='${movie.id}'>
-//         <td>${movie.name}</td>
-//         <td>${movie.description}</td>
-//         <td>${movie.budget}</td>
-//                 `;
+//                 `<tr>
+//                 <input class="movie-id" type='hidden' value='${movie.id}'>
+//                 <td>${(index + 1)}</td>;
+//                 <td>${movie.name}</td>
+//                 <td>${movie.description}</td>
+//                 <td>${movie.budget}</td>
+//                 <td><button class="update-movie">Update</button></td>
+//                 <td><button class="delete-movie">Delete</button></td>
+//             </tr>`;
 //         });
 //         $("#movies-placeholder tbody").html(placeholder);
 //     } else {
 //         $("#movies-div").html("<p>No movies in the system.</p>");
 //     }
 // }
+
+function displayMovies(movies) {
+    if (movies.length > 0) {
+        let placeholder = "";
+        $.each(movies, (index, movie) => {
+            placeholder +=
+                `
+        <div class="card my-5 w-25 card-card" >
+             <img src="https://via.placeholder.com/250" alt="IMG" class="card-img-top">
+                <div class="card-body">
+                    <input class="movie-id" type='hidden' value='${movie.id}'>
+                        <h5 class="card-title">
+                            ${movie.name}
+                        </h5>
+                         <p class="card-text card-film-info">
+                            ${movie.description}
+                         </p>
+                         <p>
+                            <span>Budget:</span>
+                            ${movie.budget}
+                            <span>$</span>
+                        </p>
+                        <div class="card-body card-buttos">
+                            <form th:action="@{/update}" method="get">
+                                <button class="edit-film btn btn-primary">Edit</button>
+                            </form>
+                            <form th:action="@{/api/movies/{id}}" method="post">
+                                <button class="info-film btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                </div>
+        </div>
+                `;
+        });
+        $("#movies-placeholder").html(placeholder);
+    } else {
+        $("#movies-div").html("<p>No movies in the system.</p>");
+    }
+}
 
 $("#add").on("click", () => {
     window.location.href = "/add";
