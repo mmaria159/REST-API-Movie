@@ -16,27 +16,6 @@ function getAllMovies() {
     })
 }
 
-// function displayMovies(movies) {
-//     if (movies.length>0) {
-//         let placeholder = "";
-//         $.each(movies, (index, movie) => {
-//             placeholder +=
-//                 `<tr>
-//                 <input class="movie-id" type='hidden' value='${movie.id}'>
-//                 <td>${(index + 1)}</td>;
-//                 <td>${movie.name}</td>
-//                 <td>${movie.description}</td>
-//                 <td>${movie.budget}</td>
-//                 <td><button class="update-movie">Update</button></td>
-//                 <td><button class="delete-movie">Delete</button></td>
-//             </tr>`;
-//         });
-//         $("#movies-placeholder tbody").html(placeholder);
-//     } else {
-//         $("#movies-div").html("<p>No movies in the system.</p>");
-//     }
-// }
-
 function displayMovies(movies) {
     if (movies.length > 0) {
         let placeholder = "";
@@ -60,10 +39,11 @@ function displayMovies(movies) {
                         </p>
                         <div class="card-body card-buttos">
                             <form th:action="@{/update}" method="get">
-                                <button class="edit-film btn btn-primary">Edit</button>
+                                <button class="update-movie edit-film btn btn-primary">Edit</button>
                             </form>
-                            <form th:action="@{/api/movies/} + ${movie.id}" method="post">
-                                <button class="info-film btn btn-danger">Delete</button>
+                            <form th:action="@{/api/movies/} + ${movie.id}" th:method="post">
+                                <button class="delete-movie info-film btn btn-danger">Delete</button>
+                                
                             </form>
                         </div>
                 </div>
@@ -80,7 +60,7 @@ $("#add").on("click", () => {
     window.location.href = "/add";
 });
 
-$("#movies-placeholder").on("click", ".update-movie", function () {
+$("#movies-placeholder").on("click", ".delete-movie", function () {
     let id = this.parentNode.parentElement.querySelector(".movie-id").value;
     window.location.href = `/update?uid=${id}`;
 });
@@ -91,7 +71,7 @@ $("#movies-placeholder").on("click", ".delete-movie", function () {
         let id = this.parentNode.parentElement.querySelector(".movie-id").value;
         $.ajax({
             url: `/api/movies/${id}`,
-            method: "DELETE",
+            method: "POST",
             success: message => {
                 alert(`SUCCESS: ${message}`);
                 getAllMovies();
