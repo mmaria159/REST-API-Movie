@@ -6,9 +6,8 @@ img {
 .header-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
-
 .search-films {
   padding: 5px;
   width: 400px;
@@ -29,7 +28,7 @@ align-items: flex-end;
 
 .card-film-info {
   height: 200px;
-  color: red;
+  color: black;
 }
 
 .card-body.card-buttos {
@@ -39,4 +38,12 @@ align-items: flex-end;
 
 .card-card {
 margin: 30px;
+}
+
+.header-add-button {
+  display: inline-block;
+}
+
+.header-singOut-button {
+  display: inline-block;
 }
